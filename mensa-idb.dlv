@@ -22,7 +22,6 @@ totalPoints(Points) :- #sum{
 %                         } = Points.
 
 % totalPoints(Points+1) :- #count{N : inMeal(N)} = Points.
-
 :- totalPoints(X), X > 4.
 
 % get # of types of food in the meal
@@ -33,9 +32,9 @@ mealTypes(X) :- #count{N : inMeal(Food), food(Food, N)} = X.
 vegetarianCount(VCount) :- #count{X : inMeal(X), vegetarian(X)} = VCount.
 
 % :- #count{N : totalPoints(N)} != 4.
-:~ totalPoints(Points).  [3@3, -Points]
-:~ mealTypes(X). [2@2, -X]
-:~ vegetarianCount(VCount). [2@1, -VCount]
+:~ totalPoints(Points).  [10@3, -Points]
+:~ mealTypes(X). [10@2, -X]
+:~ vegetarianCount(VCount). [1000@1, -VCount]
 
 #show totalPoints/1.
 #show inMeal/1.
