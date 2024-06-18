@@ -1,0 +1,45 @@
+% inMeal(X) | outMeal(X) :- food(X, M).
+{inMeal(X)} :- food(X,_).
+
+% No two secondi
+:- #count{N : inMeal(N), food(N, secondi)} != 1.
+
+% You can't have more than two primi in a meal
+:- #count{N : inMeal(N), food(N, primi)} > 2.
+
+% You can't have more than two contorni in a meal
+:- #count{N : inMeal(N), food(N, contorno)} > 2.
+
+% get points in a meal. Add 1 since there must be a secondi
+totalPoints(Points) :- #sum{
+                            2, X:inMeal(X), food(X, Meal), Meal=secondi;
+                            1, X:inMeal(X), food(X, Meal), Meal=primi;
+                            1, X:inMeal(X), food(X, Meal), Meal=contorno
+                        } = Points.
+
+% totalPoints(Points) :- #sum{
+%                             X : inMeal(Food), food(Food, Meal), points(Meal, X)
+%                         } = Points.
+
+% totalPoints(Points+1) :- #count{N : inMeal(N)} = Points.
+
+:- totalPoints(X), X > 4.
+
+% get # of types of food in the meal
+mealTypes(X) :- #count{N : inMeal(Food), food(Food, N)} = X.
+
+
+
+vegetarianCount(VCount) :- #count{X : inMeal(X), vegetarian(X)} = VCount.
+
+% :- #count{N : totalPoints(N)} != 4.
+:~ totalPoints(Points).  [1@3, -Points]
+:~ mealTypes(X). [1@2, -X]
+:~ vegetarianCount(VCount). [1@1, -VCount]
+
+#show totalPoints/1.
+#show inMeal/1.
+#show mealTypes/1.
+#show vegetarianCount/1.
+
+

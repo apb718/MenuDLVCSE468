@@ -1,0 +1,31 @@
+food(gnocchi, primi).
+food(bucatini_in_salsa).
+food(pomodori_con_riso).
+food(minestrone_con_pasta).
+food(orzo_con_coriandoli).
+
+food(filetti_di_limanda, secondi).
+food(hamburger_alla_piastra, secondi).
+food(involtini_di_zicchine, secondi).
+food(prosciutto_cotto_arrosto, secondi).
+food(ricotta_light, secondi).
+
+food(bieta_in_padella, contorno).
+food(patate_al_forno, contorno).
+food(fagiolini_con_cipolline, contorno).
+food(insalata_tricolore, contorno).
+food(peperonata, contorno).
+
+vegetarian(minestrone_con_pasta).
+vegetarian(pomodori_con_riso).
+vegetarian(orzo_con_coriandoli).
+vegetarian(bieta_in_padella).
+vegetarian(patate_al_forno).
+vegetarian(fagiolini_con_cipolline).
+vegetarian(insalata_tricolore).
+vegetarian(peperonata).
+
+
+points(primi, 1).
+points(secondi, 2).
+points(contorno, 1).
